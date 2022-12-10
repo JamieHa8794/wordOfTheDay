@@ -14,7 +14,7 @@ const Dictionary = db.define('dictionary', {
     meaning: {
         type: TEXT
     },
-    sentence:{
+    examples:{
         type: TEXT
     }
 })
@@ -23,13 +23,22 @@ const syncAndSeed = async () =>{
     try{
         await Promise.all(dictionary.map(word =>{
             Dictionary.create({
-                word: dictionary.Word,
-                meaning: dictionary.Meaning,
-                
+                word: dictionary.word,
+                meaning: dictionary.meaning,
+                example: dictionary.examples
+
             })
         }))
     }
     catch(err){
         console.log(err);
+    }
+}
+
+module.exports = {
+    db,
+    syncAndSeed,
+    model: {
+        Dictionary
     }
 }
