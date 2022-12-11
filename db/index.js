@@ -1,44 +1,50 @@
 const Sequelize = require('sequelize');
 const {STRING, TEXT} = Sequelize
-const db = new Sequelize(process.env.DATABASE_URL || 'localhost://postgres/wordOfTheDay');
+const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/wordoftheday')
 
 const {dictionary} = require('./data')
 
-const Dictionary = db.define('dictionary', {
-    id:{
-        type: STRING
+const Dictonary = db.define('dictionary', {
+    id: {
+        type: STRING,
+        primaryKey: true,
     },
-    word:{
+    word: {
         type: STRING
     },
     meaning: {
         type: TEXT
     },
-    examples:{
-        type: TEXT
+    example: {
+        type: STRING
     }
 })
 
+
+
+
 const syncAndSeed = async () =>{
     try{
-        await Promise.all(dictionary.map(word =>{
-            Dictionary.create({
-                word: dictionary.word,
-                meaning: dictionary.meaning,
-                example: dictionary.examples
-
+        await db.sync({force: true})
+        console.log('connected to db')
+        await Promise.all(dictionary.map(singleWord =>{
+            Dictonary.create({
+                id: singleWord.id,
+                word: singleWord.word,
+                meaning: singleWord.meaning,
+                example: singleWord.example
             })
         }))
     }
     catch(err){
-        console.log(err);
+        console.log(err)
     }
 }
 
 module.exports = {
     db,
     syncAndSeed,
-    model: {
-        Dictionary
+    models: {
+        Dictonary
     }
 }
