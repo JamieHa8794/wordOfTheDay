@@ -74,6 +74,13 @@ const loadDictionary = () =>{
     }
 }
 
+const addDay = () =>{
+
+}
+
+const subtractDay = () =>{
+    
+}
 
 export default store;
 export {loading, loadDictionary}
