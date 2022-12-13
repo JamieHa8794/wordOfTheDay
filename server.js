@@ -5,17 +5,16 @@ const {syncAndSeed, models: {Dictonary}} = require('./db/index')
 
 const path = require('path')
 
-app.use('public', express.static(path.join(__dirname, 'public')))
-app.use('dist', express.static(path.join(__dirname, 'dist')))
+app.use('/public', express.static(path.join(__dirname, 'public')))
+app.use('/dist', express.static(path.join(__dirname, 'dist')))
 
 
-// app.get('/', (req, res, next)=> res.sendFile('index.html'))
+app.get('/', (req, res, next)=> res.sendFile(path.join(__dirname, 'index.html')))
 
-app.get('/', async (req, res, next)=>{
+app.get('/api/dictionary', async (req, res, next)=>{
     try{
-        res.send(
-            await Dictonary.findAll()
-        )
+        const dictionary = await Dictonary.findAll()
+        res.send(dictionary)
     }
     catch(err){
         console.log(err)
@@ -23,9 +22,9 @@ app.get('/', async (req, res, next)=>{
 })
 
 
-const init = () =>{
+const init = async () =>{
     try{
-        syncAndSeed();
+        await syncAndSeed();
         const port = process.env.PORT || 8080;
         app.listen(port, ()=> console.log(`listening on port ${port}`))
     }
