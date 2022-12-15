@@ -59,7 +59,7 @@ const _loadDictionary = (dictionary) =>{
     }
 }
 
-const _setDate = () =>{
+const _setDate = (date) =>{
     return {
         type: SET_DATE,
         date
@@ -83,19 +83,22 @@ const loadDictionary = () =>{
 
 const addDay = (date, history) =>{
     return (dispatch) =>{
-        const date = date.setDate(date.getDate() + 1);
-        dispatch(_setDate(date))
-
-        history.push('/wordOfTheDay/')
+        const copy = new Date(Number(date))
+        copy.setDate(date.getDate() + 1)
+        dispatch(_setDate(copy))
+      
+    
+        // history.push('/wordOfTheDay/')
     }
 }
 
 const subtractDay = (date, history) =>{
     return (dispatch) =>{
-        const date = date.setDate(date.getDate() - 1);
-        dispatch(_setDate(date))
+        const copy = new Date(Number(date))
+        copy.setDate(date.getDate() - 1)
+        dispatch(_setDate(copy))
 
-        history.push('/wordOfTheDay/')
+        // history.push('/wordOfTheDay/')
     }
 }
 
