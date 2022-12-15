@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 // import { HashRouter as Router, Route } from 'react-router-dom';
 
-import {loading, loadDictionary, addDay, subtractDay} from './store'
+import {loading, loadDictionary, addDay, subtractDay, resetDay} from './store'
 
 
 class _App extends Component{
@@ -10,6 +10,7 @@ class _App extends Component{
         super();
         this.addDay = this.addDay.bind(this)
         this.subtractDay = this.subtractDay.bind(this)
+        this.resetDay = this.resetDay.bind(this)
 
     }
     componentDidMount(){
@@ -26,10 +27,14 @@ class _App extends Component{
         const {subtractDay, history} = this.props;
         subtractDay(pageDate, history);
     }
+    resetDay(){
+        const {resetDay, history} = this.props;
+        resetDay(history);
+    }
     render(){
         const {dictionary, pageDate} = this.props.state
-        const {addDay, subtractDay} = this
-        console.log(pageDate)
+        const {addDay, subtractDay, resetDay} = this
+        // console.log(pageDate)
 
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const convertDay = (1000 * 3600 * 24)
@@ -37,7 +42,7 @@ class _App extends Component{
         const month = months[date.getMonth()];
         const day = date.getDate();
         const year = date.getFullYear();
-        console.log(month, day, year)
+        // console.log(month, day, year)
         const fullDate = month + ' ' + day + ', ' + year;
 
         return(
@@ -56,6 +61,7 @@ class _App extends Component{
                         })}
                     </ul>
                     <button onClick={addDay}>Add Day</button>
+                    <button onClick={resetDay}>Today</button>
                     <button onClick={subtractDay}>Subtract Day</button>
                 </div>
             </div>
@@ -80,6 +86,9 @@ const mapDispatchToProps = (dispatch) =>{
        },
        subtractDay: (date, history) =>{
             dispatch(subtractDay(date, history))
+       },
+       resetDay: (history) =>{
+            dispatch(resetDay(history))
        }
     }
 }

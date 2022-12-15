@@ -102,5 +102,12 @@ const subtractDay = (date, history) =>{
     }
 }
 
+const resetDay = (history) =>{
+    return (dispatch) =>{
+        const today = new Date();
+        dispatch(_setDate(today))
+    }
+}
+
 export default store;
-export {loading, loadDictionary, addDay, subtractDay}
+export {loading, loadDictionary, addDay, subtractDay, resetDay}
