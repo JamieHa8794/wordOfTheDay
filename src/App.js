@@ -4,6 +4,12 @@ import { connect } from 'react-redux';
 
 import {loading, loadDictionary, addDay, subtractDay, resetDay} from './store'
 
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import IconButton from '@mui/material/IconButton';
+
 
 class _App extends Component{
     constructor(){
@@ -44,9 +50,78 @@ class _App extends Component{
         const year = date.getFullYear();
         // console.log(month, day, year)
         const fullDate = month + ' ' + day + ', ' + year;
+        const today = new Date()
+
+
+
+        const nextDate = new Date(Number(date))
+        nextDate.setDate(date.getDate() + 1)
+
+        const prevDate = new Date(Number(date))
+        prevDate.setDate(date.getDate() - 1)
+
+
+        if(pageDate.toDateString() === today.toDateString()){
+            return(
+                <div className='main'>
+                    <Paper elevation={3}>
+
+                    <div className='date'>
+                        {fullDate}
+                    </div>
+                    <div>
+                        <ul>
+                            {dictionary.map(word =>{
+                                return(
+                                    <li>
+                                        {word.word}
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                        {/* <button onClick={addDay}>Add Day</button> */}
+
+                        <div className='dateButtons'>
+
+                            <Button
+                            disabled={false}
+                            size="large"
+                            variant="filledTonal"
+                            startIcon={<ArrowBackIosIcon />}
+                            onClick={subtractDay}
+                            sx={{ width: 190 }}
+                            >
+                            {prevDate.toDateString()}
+                            </Button>
+
+
+                            <Button disabled>Today</Button>
+
+
+                            <Button
+                            disabled={false}
+                            size="large"
+                            variant="filledTonal"
+                            endIcon={<ArrowForwardIosIcon />}
+                            onClick={addDay}
+                            sx={{ width: 190 }}
+                            >
+                            {nextDate.toDateString()}
+                            </Button>
+
+                        </div>
+
+
+                    </div>
+                    </Paper>
+                </div>
+            )
+        }
 
         return(
-            <div>
+            <div className='main'>
+                <Paper elevation={3}>
+
                 <div className='date'>
                     {fullDate}
                 </div>
@@ -60,10 +135,35 @@ class _App extends Component{
                             )
                         })}
                     </ul>
-                    <button onClick={addDay}>Add Day</button>
-                    <button onClick={resetDay}>Today</button>
-                    <button onClick={subtractDay}>Subtract Day</button>
+                    <div className='dateButtons'>
+                        <Button
+                        disabled={false}
+                        size="large"
+                        variant="filledTonal"
+                        startIcon={<ArrowBackIosIcon />}
+                        onClick={subtractDay}
+                        sx={{ width: 190 }}
+                        >
+                        {prevDate.toDateString()}
+                        </Button>
+                        <Button
+                        onClick={resetDay}
+                        >Today</Button>
+
+                        <Button
+                        disabled={false}
+                        size="large"
+                        variant="filledTonal"
+                        endIcon={<ArrowForwardIosIcon />}
+                        onClick={addDay}
+                        sx={{ width: 190 }}
+                        >
+                        {nextDate.toDateString()}
+                        </Button>
+                    </div>
+
                 </div>
+                </Paper>
             </div>
         )
     }
