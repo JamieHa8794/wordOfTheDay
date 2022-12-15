@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 // import { HashRouter as Router, Route } from 'react-router-dom';
 
-import {loading, loadDictionary} from './store'
+import {loading, loadDictionary, addDay, subtractDay} from './store'
 
 
 class _App extends Component{
@@ -17,13 +17,14 @@ class _App extends Component{
     }
     addDay(){
         const {pageDate} = this.props.state
-        const plusOne = pageDate.getDate() + 1;
-        console.log(pageDate)
-        console.log(plusOne)
+        const {addDay, history} = this.props;
+        addDay(pageDate, history);
+
     }
     subtractDay(){
         const {pageDate} = this.props.state
-        console.log(pageDate)
+        const {subtractDay, history} = this.props;
+        subtractDay(pageDate, history);
     }
     render(){
         const {dictionary, pageDate} = this.props.state
@@ -38,16 +39,6 @@ class _App extends Component{
         const year = date.getFullYear();
         console.log(month, day, year)
         const fullDate = month + ' ' + day + ', ' + year;
-
-
-        // const date2 = new Date(2021, 0, 1)
-        // console.log(date2)
-
-        // console.log((date - date2)/convertDay)
-
-
-
-
 
         return(
             <div>
@@ -83,6 +74,12 @@ const mapDispatchToProps = (dispatch) =>{
         load: () =>{
            dispatch(loadDictionary())
            dispatch(loading())
+       },
+       addDay: (date, history) =>{
+            dispatch(addDay(date, history))
+       },
+       subtractDay: (date, history) =>{
+            dispatch(subtractDay(date, history))
        }
     }
 }

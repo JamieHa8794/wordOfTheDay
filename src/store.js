@@ -59,6 +59,13 @@ const _loadDictionary = (dictionary) =>{
     }
 }
 
+const _setDate = () =>{
+    return {
+        type: SET_DATE,
+        date
+    }
+}
+
 //thunks
 const loading = () =>{
     return (dispatch) =>{
@@ -74,13 +81,23 @@ const loadDictionary = () =>{
     }
 }
 
-const addDay = () =>{
+const addDay = (date, history) =>{
+    return (dispatch) =>{
+        const date = date.setDate(date.getDate() + 1);
+        dispatch(_setDate(date))
 
+        history.push('/wordOfTheDay/')
+    }
 }
 
-const subtractDay = () =>{
-    
+const subtractDay = (date, history) =>{
+    return (dispatch) =>{
+        const date = date.setDate(date.getDate() - 1);
+        dispatch(_setDate(date))
+
+        history.push('/wordOfTheDay/')
+    }
 }
 
 export default store;
-export {loading, loadDictionary}
+export {loading, loadDictionary, addDay, subtractDay}
