@@ -9,6 +9,8 @@ import Button from '@mui/material/Button';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import Grid from '@mui/material/Unstable_Grid2';
 
 
 class _App extends Component{
@@ -62,25 +64,105 @@ class _App extends Component{
 
         console.log(pageDate.toDateString())
 
+        if(dictionary.length > 0){
+            dictionary.map(word => {
+                word.date = new Date(word.date)
+            })
+        }
+
+        const todayWord = dictionary.find(word => word.date.toDateString() === pageDate.toDateString())
+
+        if(dictionary.length === 0){
+            return(
+                <div className='main'>
+                <Grid display="flex" justifyContent="center" alignItems="center">
+
+                <Paper 
+                elevation={3}
+                sx={{
+                    p: 5,
+                    width: 940
+                }}
+                >
+
+                <div className='date'>
+                    {fullDate}
+                </div>
+
+                <div className='error-container'>
+                    <img className='error-img' src='../public/error.png' />
+                <div className='error-heading'>
+                    Opps! Something went wrong...
+                </div>
+                </div>
+                </Paper>
+                </Grid>
+            </div>
+            )
+        }
+
+        console.log('here', !todayWord)
+        if(!todayWord){
+            return(
+            <div className='main'>
+            <Grid display="flex" justifyContent="center" alignItems="center">
+
+                <Paper 
+                elevation={3}
+                sx={{
+                    p: 5,
+                    width: 940
+                }}
+                >
+
+                <div className='date'>
+                    {fullDate}
+                </div>
+                <div className='container'>
+
+                    <div className='error-container'>
+                        <img className='error-img' src='../public/oopps.png' />
+                        <div className='error-heading'>
+                            Opps! This date is outside of bounds.. try a future date or today!
+                        </div>
+                    </div>
+                    <div className='error-dateButtons'>
+                        <Button
+                        onClick={resetDay}
+                        sx={{
+                            color: '#A85772'
+                        }}
+                        >Today</Button>
+                    </div>
+                </div>
+                </Paper>
+                </Grid>
+            </div>
+            )
+        }
+
         if(pageDate.toDateString() === today.toDateString()){
             return(
                 <div className='main'>
-                    <Paper elevation={3}>
+                    <Grid display="flex" justifyContent="center" alignItems="center">
 
+                    <Paper 
+                    elevation={3}
+                    sx={{
+                        p: 5,
+                        width: 940
+                    }}
+                    >
                     <div className='date'>
                         {fullDate}
                     </div>
-                    <div>
-                        <ul>
-                            {dictionary.map(word =>{
-                                return(
-                                    <li>
-                                        {word.word}
-                                    </li>
-                                )
-                            })}
-                        </ul>
-                        {/* <button onClick={addDay}>Add Day</button> */}
+                    <div className='container'>
+                        <div className='word-word'>
+                            {todayWord.word}
+                        </div>
+                        <div className='word-definition'>
+                            {todayWord.meaning}
+                        </div>
 
                         <div className='dateButtons'>
 
@@ -96,7 +178,11 @@ class _App extends Component{
                             </Button>
 
 
-                            <Button disabled>Today</Button>
+                            <Button disabled
+                            sx={{
+                                color: '#A85772'
+                            }}
+                            >Today</Button>
 
 
                             <Button
@@ -115,27 +201,33 @@ class _App extends Component{
 
                     </div>
                     </Paper>
+                    </Grid>
                 </div>
             )
         }
 
         return(
             <div className='main'>
-                <Paper elevation={3}>
+                <Grid display="flex" justifyContent="center" alignItems="center">
+
+                <Paper 
+                elevation={3}
+                sx={{
+                    p: 5,
+                    width: 940
+                }}
+                >
 
                 <div className='date'>
                     {fullDate}
                 </div>
-                <div>
-                    <ul>
-                        {dictionary.map(word =>{
-                            return(
-                                <li>
-                                    {word.word}
-                                </li>
-                            )
-                        })}
-                    </ul>
+                <div className='container'>
+                    <div className='word-word'>
+                            {todayWord.word}
+                    </div>
+                    <div className='word-definition'>
+                            {todayWord.meaning}
+                        </div>
                     <div className='dateButtons'>
                         <Button
                         disabled={false}
@@ -149,6 +241,9 @@ class _App extends Component{
                         </Button>
                         <Button
                         onClick={resetDay}
+                        sx={{
+                            color: '#A85772'
+                        }}
                         >Today</Button>
 
                         <Button
@@ -157,7 +252,9 @@ class _App extends Component{
                         variant="filledTonal"
                         endIcon={<ArrowForwardIosIcon />}
                         onClick={addDay}
-                        sx={{ width: 190 }}
+                        sx={{ 
+                            width: 190,
+                        }}
                         >
                         {nextDate.toDateString()}
                         </Button>
@@ -165,6 +262,7 @@ class _App extends Component{
 
                 </div>
                 </Paper>
+                </Grid>
             </div>
         )
     }

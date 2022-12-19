@@ -37403,7 +37403,7 @@ const dictionary = [
    {
      "id": 5344,
      "word": "Insinuate",
-     "meaning": "1.) to imply or suggest that something negative is true»  2.) to insert yourself into a place of favor in a subtle way",
+     "meaning": "to imply or suggest that something negative is true",
      "example": "During the debate, the senator tried to insinuate his opponent was not qualified for office.",
      "date": "12/27/22"
    },
@@ -57486,7 +57486,7 @@ const dictionary = [
    {
      "id": 8213,
      "word": "Profligate",
-     "meaning": "1.) wildly extravagant or wasteful; 2.) shamelessly immoral",
+     "meaning": "wildly extravagant or wasteful",
      "example": "After the millionaire saw evidence of his new wife's profligate spending, he quickly filed for a divorce.",
      "date": "12/28/22"
    },

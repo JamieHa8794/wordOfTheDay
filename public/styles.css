@@ -1,11 +1,53 @@
 body{
-    background-color: whitesmoke;
+    background-color: #788EBA;
+    justify-content: center;
+    align-items: center;
 }
 .main{
     margin: 80px;
 }
+.date{
+    font-family: monospace;    
+}
 .dateButtons{
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.word-word{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 50px;
+
+    font-family: Copperplate;
+}
+.word-definition{
+    justify-content: left;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.error-container{
+    height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.error-img{
+    height: auto;
+    width: 400px;
+}
+.error-heading{
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
