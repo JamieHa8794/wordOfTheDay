@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const {STRING, TEXT, DATE} = Sequelize
 const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/wordoftheday')
 
-const {dictionary} = require('./data')
+const {dictionary} = require('./datap')
 
 const Dictonary = db.define('dictionary', {
     id: {
@@ -20,6 +20,9 @@ const Dictonary = db.define('dictionary', {
     },
     date:{
         type: DATE
+    },
+    pronounciation:{
+        type: STRING
     }
 })
 
@@ -36,7 +39,8 @@ const syncAndSeed = async () =>{
                 word: singleWord.word,
                 meaning: singleWord.meaning,
                 example: singleWord.example,
-                date: singleWord.date
+                date: singleWord.date,
+                pronounciation: singleWord.pronounciation
             })
         }))
     }

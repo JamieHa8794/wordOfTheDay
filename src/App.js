@@ -72,6 +72,8 @@ class _App extends Component{
 
         const todayWord = dictionary.find(word => word.date.toDateString() === pageDate.toDateString())
 
+
+        console.log(todayWord)
         if(dictionary.length === 0){
             return(
                 <div className='main'>
@@ -160,6 +162,9 @@ class _App extends Component{
                         <div className='word-word'>
                             {todayWord.word}
                         </div>
+                        <div className='word-pronounciation'>
+                            {todayWord.pronounciation}
+                        </div>
                         <div className='word-definition'>
                             {todayWord.meaning}
                         </div>
@@ -225,9 +230,12 @@ class _App extends Component{
                     <div className='word-word'>
                             {todayWord.word}
                     </div>
+                    <div className='word-pronounciation'>
+                            {todayWord.pronounciation}
+                    </div>
                     <div className='word-definition'>
                             {todayWord.meaning}
-                        </div>
+                    </div>
                     <div className='dateButtons'>
                         <Button
                         disabled={false}
