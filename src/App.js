@@ -60,6 +60,7 @@ class _App extends Component{
         const prevDate = new Date(Number(date))
         prevDate.setDate(date.getDate() - 1)
 
+        console.log(pageDate.toDateString())
 
         if(pageDate.toDateString() === today.toDateString()){
             return(
