@@ -11,6 +11,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import IconButton from '@mui/material/IconButton';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import Grid from '@mui/material/Unstable_Grid2';
+import Divider from '@mui/material/Divider';
 
 
 class _App extends Component{
@@ -162,8 +163,14 @@ class _App extends Component{
                         <div className='word-word'>
                             {todayWord.word}
                         </div>
-                        <div className='word-pronounciation'>
-                            {todayWord.pronounciation}
+                        <div className='word-sub-container'>
+                            <div className='word-partOfSpeech'>
+                                {todayWord.partOfSpeech}
+                            </div>
+                            <Divider orientation="vertical" flexItem />
+                            <div className='word-pronounciation'>
+                                {todayWord.pronounciation}
+                            </div>
                         </div>
                         <div className='word-definition'>
                             {todayWord.meaning}
@@ -230,9 +237,15 @@ class _App extends Component{
                     <div className='word-word'>
                             {todayWord.word}
                     </div>
-                    <div className='word-pronounciation'>
-                            {todayWord.pronounciation}
-                    </div>
+                    <div className='word-sub-container'>
+                            <div className='word-partOfSpeech'>
+                                {todayWord.partOfSpeech}
+                            </div>
+                            <Divider orientation="vertical" flexItem />
+                            <div className='word-pronounciation'>
+                                {todayWord.pronounciation}
+                            </div>
+                        </div>
                     <div className='word-definition'>
                             {todayWord.meaning}
                     </div>

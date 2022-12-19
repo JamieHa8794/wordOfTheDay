@@ -23,6 +23,9 @@ const Dictonary = db.define('dictionary', {
     },
     pronounciation:{
         type: STRING
+    },
+    partOfSpeech:{
+        type: STRING
     }
 })
 
@@ -40,7 +43,8 @@ const syncAndSeed = async () =>{
                 meaning: singleWord.meaning,
                 example: singleWord.example,
                 date: singleWord.date,
-                pronounciation: singleWord.pronounciation
+                pronounciation: singleWord.pronounciation,
+                partOfSpeech: singleWord.partOfSpeech
             })
         }))
     }

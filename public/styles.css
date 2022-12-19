@@ -38,8 +38,18 @@ body{
     justify-content: left;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+.word-sub-container{
+    display: flex;
+    flex-direction: row;
+}
+.word-partOfSpeech{
+    color: #72A857;
+    margin: 5px;
+}
 .word-pronounciation{
     color: #A85772;
+    margin: 5px;
+
 }
 .error-container{
     height: 500px;
