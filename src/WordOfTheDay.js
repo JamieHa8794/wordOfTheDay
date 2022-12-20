@@ -19,9 +19,6 @@ class WordOfTheDay extends Component{
         this.resetDay = this.resetDay.bind(this)
 
     }
-    // componentDidMount(){
-        
-    // }
     addDay(){
         const {pageDate} = this.props.state
         const {addDay, history} = this.props;

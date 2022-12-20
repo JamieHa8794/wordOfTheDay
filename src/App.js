@@ -4,6 +4,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 
 import {loading, loadDictionary} from './store'
 
+import Nav from './Nav'
 import WordOfTheDay from './WordOfTheDay';
 
 
@@ -18,6 +19,7 @@ class _App extends Component{
         
         return(
             <Router>
+                <Route path='/' component={Nav}/>
                 <Route path='/wordOfTheDay' component={WordOfTheDay}/>
             </Router>
         )

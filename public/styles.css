@@ -2,10 +2,17 @@ body{
     background-color: #788EBA;
     justify-content: center;
     align-items: center;
+
+    margin: 0;
 }
 .main{
     margin: 80px;
 }
+
+
+/* 
+    Word Of The Day Styles
+*/
 .date{
     font-family: monospace;
     font-size: 15px;    
@@ -68,3 +75,6 @@ body{
     font-size: 25px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+/* 
+    Word Of The Day Styles
+*/
