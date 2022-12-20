@@ -70,8 +70,10 @@ class WordOfTheDay extends Component{
         if(dictionary.length === 0){
             return(
                 <div className='main'>
-                <Grid display="flex" justifyContent="center" alignItems="center">
-
+                <Grid display="flex" flexDirection='column' justifyContent="center" alignItems="center">
+                <div className='page-heading'>
+                    Word of The Day
+                </div>
                 <Paper 
                 elevation={8}
                 sx={{
@@ -99,8 +101,10 @@ class WordOfTheDay extends Component{
         if(!todayWord){
             return(
             <div className='main'>
-            <Grid display="flex" justifyContent="center" alignItems="center">
-
+            <Grid display="flex" flexDirection='column' justifyContent="center" alignItems="center">
+                <div className='page-heading'>
+                    Word of The Day
+                </div>
                 <Paper 
                 elevation={8}
                 sx={{
@@ -138,8 +142,10 @@ class WordOfTheDay extends Component{
         if(pageDate.toDateString() === today.toDateString()){
             return(
                 <div className='main'>
-                    <Grid display="flex" justifyContent="center" alignItems="center">
-
+                    <Grid display="flex" flexDirection='column' justifyContent="center" alignItems="center">
+                    <div className='page-heading'>
+                        Word of The Day
+                    </div>
                     <Paper 
                     elevation={8}
                     sx={{
@@ -147,6 +153,7 @@ class WordOfTheDay extends Component{
                         width: 940
                     }}
                     >
+                        
                     <div className='date'>
                         {fullDate}
                     </div>
@@ -211,8 +218,10 @@ class WordOfTheDay extends Component{
 
         return(
             <div className='main'>
-                <Grid display="flex" justifyContent="center" alignItems="center">
-
+                <Grid display="flex" flexDirection='column' justifyContent="center" alignItems="center">
+                <div className='page-heading'>
+                    Word of The Day
+                </div>
                 <Paper 
                 elevation={8}
                 sx={{

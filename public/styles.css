@@ -6,9 +6,19 @@ body{
     margin: 0;
 }
 .main{
-    margin: 80px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-bottom: 80px;
+    margin-top: 30px;
 }
 
+.page-heading{
+    font-size: 50px;
+    margin-bottom: 10px;
+
+    color: black;
+    font-family: 'Chalkduster';
+}
 
 /* 
     Word Of The Day Styles

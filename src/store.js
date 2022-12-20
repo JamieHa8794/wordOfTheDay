@@ -10,6 +10,7 @@ const todaysdate = new Date();
 const LOADED = 'LOADED'
 const LOAD_DICTIONARY = 'LOAD_DICTIONARY'
 const SET_DATE = 'SET_DATE'
+const SET_RANDOM_NUMBER = 'SET_RANDOM_NUMBER'
 
 //reducers
 
@@ -34,10 +35,19 @@ const pageReducers = (state = todaysdate, action) =>{
     return state;
 }
 
+const numberReducer = (state = Math.floor(Math.random() * 10939), action) =>{
+    if(action.type === SET_RANDOM_NUMBER){
+        state = action.randomNumber;
+    }
+    return state;
+}
+
+
 const reducer = combineReducers({
     loading: loadReducers,
     dictionary: dictionaryReducers,
-    pageDate: pageReducers
+    pageDate: pageReducers,
+    randomNumber: numberReducer
 
 })
 
@@ -63,6 +73,13 @@ const _setDate = (date) =>{
     return {
         type: SET_DATE,
         date
+    }
+}
+
+const _RandomizeNumber = (randomNumber) =>{
+    return{
+        type: SET_RANDOM_NUMBER,
+        randomNumber
     }
 }
 
@@ -103,5 +120,12 @@ const resetDay = (history) =>{
     }
 }
 
+const randomizeNumber = (length) =>{
+    return (dispatch) =>{
+        const randomNumber =  Math.floor(Math.random() * length)
+        dispatch(_RandomizeNumber(randomNumber))
+    }
+}
+
 export default store;
-export {loading, loadDictionary, addDay, subtractDay, resetDay}
+export {loading, loadDictionary, addDay, subtractDay, resetDay, randomizeNumber}

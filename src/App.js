@@ -6,6 +6,7 @@ import {loading, loadDictionary} from './store'
 
 import Nav from './Nav'
 import WordOfTheDay from './WordOfTheDay';
+import RandomWord from './RandomWord';
 
 
 class _App extends Component{
@@ -21,6 +22,8 @@ class _App extends Component{
             <Router>
                 <Route path='/' component={Nav}/>
                 <Route path='/wordOfTheDay' component={WordOfTheDay}/>
+                <Route path='/randomWord' component={RandomWord}/>
+
             </Router>
         )
     }
