@@ -20,7 +20,7 @@ class Home extends Component{
             <div className='main'>
                 <div className='home-container'>
                 <Paper 
-                elevation={3} 
+                elevation={8} 
                 sx={{
                     m: 5,
                     p: 5,
@@ -46,7 +46,7 @@ class Home extends Component{
                 </Paper>
 
                 <Paper 
-                    elevation={3} 
+                    elevation={8} 
                     sx={{
                         m: 5,
                         p: 5,

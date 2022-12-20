@@ -168,7 +168,11 @@ class Nav extends Component{
                         my: 2, 
                         color: 'black', 
                         display: 'block',
-                        fontFamily: 'American Typewriter'
+                        fontFamily: 'American Typewriter',
+                        '&:hover': {
+                            backgroundColor: '#A88D57',
+                            boxShadow: 'none',
+                        },
                         
                     }}
                     >
@@ -181,7 +185,11 @@ class Nav extends Component{
                         my: 2, 
                         color: 'black', 
                         display: 'block',
-                        fontFamily: 'American Typewriter'
+                        fontFamily: 'American Typewriter',
+                        '&:hover': {
+                            backgroundColor: '#A85772',
+                            boxShadow: 'none',
+                        },
                         
                     }}
                     >
@@ -194,7 +202,11 @@ class Nav extends Component{
                         my: 2, 
                         color: 'black', 
                         display: 'block',
-                        fontFamily: 'American Typewriter'
+                        fontFamily: 'American Typewriter',
+                        '&:hover': {
+                            backgroundColor: '#72A857',
+                            boxShadow: 'none',
+                        },
                         
                     }}
                     >

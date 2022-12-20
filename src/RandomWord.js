@@ -15,6 +15,7 @@ class WordOfTheDay extends Component{
     constructor(){
         super();
         this.randomizeNumber = this.randomizeNumber.bind(this)
+        this.goHome = this.goHome.bind(this)
 
     }
     randomizeNumber(){
@@ -24,13 +25,18 @@ class WordOfTheDay extends Component{
         randomizeNumber(dictionary.length)
 
     }
+    goHome(){
+        const {history} = this.props;
+        
+        history.push('/')
+    }
     render(){
         const {dictionary, pageDate, randomNumber}  = this.props.state
-        const {randomizeNumber} = this
+        const {randomizeNumber, goHome} = this
 
         const randomWord = dictionary.find(word => word.id*1 === randomNumber)
 
-
+        
         if(dictionary.length === 0){
             return(
                 <div className='main'>
@@ -50,6 +56,48 @@ class WordOfTheDay extends Component{
                 <div className='error-heading'>
                     Opps! Something went wrong...
                 </div>
+                </div>
+                </Paper>
+                </Grid>
+            </div>
+            )
+        }
+        if(!randomWord){
+            return(
+            <div className='main'>
+                <Grid display="flex" flexDirection='column' justifyContent="center" alignItems="center">
+                <div className='page-heading'>
+                    Word of The Day
+                </div>
+                <Paper 
+                elevation={8}
+                sx={{
+                    p: 5,
+                    width: 940
+                }}
+                >
+                <div className='container'>
+
+                    <div className='error-container'>
+                        <img className='error-img' src='../public/oopps.png' />
+                        <div className='error-heading'>
+                            Opps! Something went wrong here.. sorry!
+                        </div>
+                    </div>
+                    <div className='error-dateButtons'>
+                        <Button
+                        onClick={randomizeNumber}
+                        sx={{
+                            color: '#A88D57'
+                        }}
+                        >Try Again</Button>
+                         <Button
+                        onClick={goHome}
+                        sx={{
+                            color: '#A88D57'
+                        }}
+                        >Home</Button>
+                    </div>
                 </div>
                 </Paper>
                 </Grid>
