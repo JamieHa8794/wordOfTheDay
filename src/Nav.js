@@ -162,8 +162,22 @@ class Nav extends Component{
                 
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'right' }}>
                     <Button
+                    onClick={()=> toLink('')}
+                    sx={{ 
+                        m: 1,
+                        my: 2, 
+                        color: 'black', 
+                        display: 'block',
+                        fontFamily: 'American Typewriter'
+                        
+                    }}
+                    >
+                    Home
+                    </Button>
+                    <Button
                     onClick={()=> toLink('wordoftheday')}
                     sx={{ 
+                        m: 1,
                         my: 2, 
                         color: 'black', 
                         display: 'block',
@@ -176,6 +190,7 @@ class Nav extends Component{
                     <Button
                     onClick={()=> toLink('randomWord')}
                     sx={{ 
+                        m: 1,
                         my: 2, 
                         color: 'black', 
                         display: 'block',

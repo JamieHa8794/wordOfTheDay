@@ -20,9 +20,46 @@ body{
     font-family: 'Chalkduster';
 }
 
-/* 
-    Word Of The Day Styles
-*/
+
+
+.home-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.page-sub-heading{
+    font-size: 30px;
+    margin-bottom: 10px;
+
+    color: black;
+    font-family: 'Chalkduster';
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.page-sub-description{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.home-sub-container{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tryitButton{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 .date{
     font-family: monospace;
     font-size: 15px;    
@@ -85,6 +122,13 @@ body{
     font-size: 25px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
-/* 
-    Word Of The Day Styles
-*/
+
+.randomButton{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+

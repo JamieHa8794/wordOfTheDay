@@ -85,12 +85,15 @@ class WordOfTheDay extends Component{
                     <div className='word-definition'>
                             {randomWord.meaning}
                     </div>
+                    <div className='randomButton'>
+
                     <Button
                         onClick={randomizeNumber}
                         sx={{
                             color: '#A88D57'
                         }}
                         >New Random Word</Button>
+                    </div>
                 </div>
                 </Paper>
                 </Grid>
