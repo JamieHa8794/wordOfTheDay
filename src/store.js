@@ -76,7 +76,6 @@ const loading = () =>{
 const loadDictionary = () =>{
     return async (dispatch)=>{
         const dictionary = (await axios.get('/api/dictionary')).data
-        console.log(dictionary)
         dispatch(_loadDictionary(dictionary))
     }
 }
@@ -86,9 +85,6 @@ const addDay = (date, history) =>{
         const copy = new Date(Number(date))
         copy.setDate(date.getDate() + 1)
         dispatch(_setDate(copy))
-      
-    
-        // history.push('/wordOfTheDay/')
     }
 }
 
@@ -97,8 +93,6 @@ const subtractDay = (date, history) =>{
         const copy = new Date(Number(date))
         copy.setDate(date.getDate() - 1)
         dispatch(_setDate(copy))
-
-        // history.push('/wordOfTheDay/')
     }
 }
 

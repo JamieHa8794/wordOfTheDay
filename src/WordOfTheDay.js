@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-// import { HashRouter as Router, Route } from 'react-router-dom';
 
-import {loading, loadDictionary, addDay, subtractDay, resetDay} from './store'
+import {addDay, subtractDay, resetDay} from './store'
 
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import IconButton from '@mui/material/IconButton';
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import Grid from '@mui/material/Unstable_Grid2';
 import Divider from '@mui/material/Divider';
 
@@ -63,7 +60,6 @@ class WordOfTheDay extends Component{
         const prevDate = new Date(Number(date))
         prevDate.setDate(date.getDate() - 1)
 
-        console.log(pageDate.toDateString())
 
         if(dictionary.length > 0){
             dictionary.map(word => {
@@ -74,7 +70,6 @@ class WordOfTheDay extends Component{
         const todayWord = dictionary.find(word => word.date.toDateString() === pageDate.toDateString())
 
 
-        console.log(todayWord)
         if(dictionary.length === 0){
             return(
                 <div className='main'>
@@ -104,7 +99,6 @@ class WordOfTheDay extends Component{
             )
         }
 
-        console.log('here', !todayWord)
         if(!todayWord){
             return(
             <div className='main'>
