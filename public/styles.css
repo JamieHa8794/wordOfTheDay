@@ -7,7 +7,8 @@ body{
     margin: 80px;
 }
 .date{
-    font-family: monospace;    
+    font-family: monospace;
+    font-size: 15px;    
 }
 .dateButtons{
     width: 100%;
@@ -44,11 +45,11 @@ body{
 }
 .word-partOfSpeech{
     color: #72A857;
-    margin: 5px;
+    margin: 10px;
 }
 .word-pronounciation{
     color: #A85772;
-    margin: 5px;
+    margin: 10px;
 
 }
 .error-container{
